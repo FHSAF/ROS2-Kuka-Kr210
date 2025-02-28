@@ -114,3 +114,83 @@ For more information, check the [official ROS 2 documentation](https://docs.ros.
 ---
 
 Happy coding! 🤖
+
+## Setting Up a Workspace for KUKA KR210
+
+This section explains how to set up a ROS 2 workspace for the KUKA KR210 robot, build the workspace, and check for available packages and executables.
+
+### 1. Creating a New ROS 2 Workspace
+
+```bash
+# Navigate to your home directory or preferred location
+cd ~
+
+# Create a new directory for your workspace
+mkdir -p ~/ros2_jazzy/kuka_kr210_ws/src
+cd ~/ros2_jazzy/kuka_kr210_ws
+```
+
+### 2. Cloning the Repository
+
+
+#### Put the kuka_kr210_arm from this repository to 'src' folder
+
+### 3. Building the Workspace
+
+```bash
+# Go back to the root of the workspace
+cd ~/ros2_jazzy/kuka_kr210_ws
+
+# Source your ROS 2 installation
+. ~/ros2_jazzy/ros2-linux/setup.sh
+
+# Build the workspace using colcon
+colcon build
+```
+
+### 4. Sourcing the Workspace
+
+After building, you need to source the workspace so ROS 2 can find the new packages:
+
+```bash
+source ~/ros2_jazzy/kuka_kr210_ws/install/setup.sh
+```
+
+To make this automatic, add the line above to your `~/.bashrc` or `~/.zshrc`:
+
+```bash
+echo 'source ~/ros2_jazzy/kuka_kr210_ws/install/setup.sh' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 5. Checking Available Packages
+
+To list all packages in your workspace:
+
+```bash
+ros2 pkg list
+```
+
+You should see something like this (along with other ROS 2 packages):
+
+```
+kuka_kr210_arm
+```
+
+### 6. Finding Executables
+
+To check the available executables in the `kuka_kr210_arm` package:
+
+```bash
+ros2 pkg executables kuka_kr210_arm
+```
+
+Example output:
+
+```
+kuka_kr210_arm demo_node
+kuka_kr210_arm trajectory_planner
+```
+
+Now you have successfully set up a ROS 2 workspace for the KUKA KR210, built the package, and verified its executables!
+
