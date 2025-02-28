@@ -193,3 +193,49 @@ kuka_kr210_arm trajectory_planner
 ```
 
 Now you have successfully set up a ROS 2 workspace for the KUKA KR210, built the package, and verified its executables!
+
+## MoveIt 2 Installation Guide
+
+### Prerequisites
+Before running the installation commands, ensure you have sourced the necessary ROS 2 environments:
+
+```bash
+. ~/ros2_jazzy/ros2-linux/setup.bash
+source /opt/ros/$ROS_DISTRO/setup.bash
+```
+
+The first command sets up your custom ROS 2 Jazzy installation, and the second one ensures the environment variables for your ROS distribution are correctly configured.
+
+### Installation
+
+#### From Binary
+To install MoveIt 2 for the Jazzy distribution, run:
+
+```bash
+sudo apt install ros-jazzy-moveit
+```
+
+#### Middleware
+MoveIt 2 uses a middleware layer for communication. You can install CycloneDDS (a recommended middleware) and set it as the default RMW implementation:
+
+```bash
+sudo apt install ros-$ROS_DISTRO-rmw-cyclonedds-cpp
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+```
+
+The `export` command configures the middleware for the current terminal session. Add it to your shell configuration file (e.g., `.bashrc`) for persistence.
+
+### Usage
+Once installed, you can run the MoveIt Setup Assistant to configure your robot:
+
+```bash
+ros2 run moveit_setup_assistant moveit_setup_assistant
+```
+
+The Setup Assistant helps you generate the necessary configuration files for integrating your robot with MoveIt 2.
+
+---
+
+For more details, refer to the official MoveIt 2 documentation.
+
+
