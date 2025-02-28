@@ -193,4 +193,3 @@ kuka_kr210_arm trajectory_planner
 ```
 
 Now you have successfully set up a ROS 2 workspace for the KUKA KR210, built the package, and verified its executables!
-
