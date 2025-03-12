@@ -39,7 +39,9 @@ Example used in this setup:
 ```bash
 mkdir -p ~/ros2_jazzy
 cd ~/ros2_jazzy
-tar xf ~/Downloads/ros2-jazzy-20241223-linux-noble-arm64.tar.bz2
+sudo apt update && sudo apt install lbzip2 -y
+curl -L -o ros2-jazzy.tar.bz2 https://github.com/ros2/ros2/releases/download/release-jazzy-20241223/ros2-jazzy-20241223-linux-noble-amd64.tar.bz2
+tar xf ros2-jazzy.tar.bz2
 ```
 
 ## Set Up ROS 2 Environment
@@ -143,7 +145,11 @@ cd ~/ros2_jazzy/kuka_kr210_ws
 
 # Source your ROS 2 installation
 . ~/ros2_jazzy/ros2-linux/setup.sh
-
+# colcon installation
+sudo sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt update
+sudo apt install python3-colcon-common-extensions
 # Build the workspace using colcon
 colcon build
 ```
