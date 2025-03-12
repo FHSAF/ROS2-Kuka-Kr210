@@ -200,6 +200,12 @@ kuka_kr210_arm trajectory_planner
 
 Now you have successfully set up a ROS 2 workspace for the KUKA KR210, built the package, and verified its executables!
 
+## Building ROS-TCP-Connector
+
+```bash
+git clone -b main-ros2 https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
+```
+
 ## MoveIt 2 Installation Guide
 
 ### Prerequisites
