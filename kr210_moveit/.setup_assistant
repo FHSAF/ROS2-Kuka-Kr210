@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: kuka_kr210_arm
+    relative_path: urdf/kr210.urdf.xacro
+  srdf:
+    relative_path: config/kuka_kr210_arm.srdf
+  package_settings:
+    author_name: Feda
+    author_email: muzaffari.feda@gmail.com
+    generated_timestamp: 1740956484
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
