@@ -25,3 +25,12 @@ moveit_simple_controller_manager:
       - right_gripper_finger_joint
     action_ns: gripper_cmd
     default: true
+
+trajectory_execution:
+  execution_duration_monitoring: false
+  allowed_start_tolerance: 0.01
+  trajectory_execution_manager:
+    execution_type: "simple"
+  trajectory_smoother:
+    type: "ruckig"
+
