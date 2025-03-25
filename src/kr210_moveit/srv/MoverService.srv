@@ -1,0 +1,7 @@
+Kr210MoveitJoints joints_input
+geometry_msgs/Pose pick_pose
+geometry_msgs/Pose place_pose
+Kr210MoveitJoints asm_pose1
+---
+Kr210Trajectory[] trajectories
+
